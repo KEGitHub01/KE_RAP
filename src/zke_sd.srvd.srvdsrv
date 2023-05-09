@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition'
+define service ZKE_SD {
+  expose ZKE_CDS_SO_SAMPLE as SALESORDERSET;
+}

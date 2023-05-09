@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service Definition for Travel'
+define service ZKE_UM_TRAVEL_SD {
+  expose ZKE_UM_TRAVEL as Travel;
+  expose ZKE_UM_CUSTOMER as Customer;
+  expose ZKE_UM_AGENCY as Agency;
+}
