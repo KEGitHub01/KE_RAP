@@ -1,13 +1,14 @@
 projection;
 //strict ( 1 ); //Uncomment this line in order to enable strict mode 2. The strict mode has two variants (strict(1), strict(2)) and is prerequisite to be future proof regarding syntax and to be able to release your BO.
-
+use draft;
 define behavior for ZKE_M_TRAVEL_PROCESSOR //alias <alias_name>
+implementation in class zke_class_augment
 {
-  use create;
-  use update;
+  use create (augment);
+  use update (augment);
   use delete;
   use  action CreateTravelByTemplate;
-  use association Booking { create; }
+  use association Booking { create; with draft; }
 }
 
 define behavior for ZKE_M_BOOKING_PROCESSOR //alias <alias_name>
@@ -15,5 +16,5 @@ define behavior for ZKE_M_BOOKING_PROCESSOR //alias <alias_name>
   use update;
   use delete;
 
-  use association Travel;
+  use association Travel { with draft; }
 }

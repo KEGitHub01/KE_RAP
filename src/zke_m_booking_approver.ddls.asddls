@@ -1,4 +1,4 @@
-@EndUserText.label: 'PROJECTION ON BOOKING PROCESSOR'
+@EndUserText.label: 'Approver CDS for BOOKING'
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 
 @UI.headerInfo:{
@@ -8,9 +8,9 @@
     }
     
  @Search.searchable: true
-define view entity ZKE_M_BOOKING_PROCESSOR as projection on ZKE_M_BOOKING
+define view entity ZKE_M_BOOKING_APPROVER as projection on ZKE_M_BOOKING
 {
-    @UI.facet: [{
+     @UI.facet: [{
                 id : 'Booking',
                 purpose: #STANDARD,
                 type: #IDENTIFICATION_REFERENCE,
@@ -32,7 +32,7 @@ define view entity ZKE_M_BOOKING_PROCESSOR as projection on ZKE_M_BOOKING
        @UI: { lineItem: [{ position: 30}],
              identification : [{position : 30}]
         }
-       @Consumption.valueHelpDefinition: [{entity:{name: '/DMO/I_Customer',element: 'CustomerId'}}]    
+       @Consumption.valueHelpDefinition: [{entity:{name: '/DMO/I_Customer',element: 'CustomerID'}}]    
     CustomerId,
        @UI: { lineItem: [{ position: 40}],
              identification : [{position : 40}]
@@ -77,5 +77,5 @@ define view entity ZKE_M_BOOKING_PROCESSOR as projection on ZKE_M_BOOKING
     Carrier,
     Connection,
     Customer,
-   Travel : redirected to parent ZKE_M_TRAVEL_PROCESSOR
-}
+   Travel : redirected to parent ZKE_M_TRAVEL_APPROVER
+   }

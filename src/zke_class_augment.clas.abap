@@ -1,0 +1,5 @@
+CLASS zke_class_augment DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zke_m_travel_processor.
+ENDCLASS.
+
+CLASS zke_class_augment IMPLEMENTATION.
+ENDCLASS.

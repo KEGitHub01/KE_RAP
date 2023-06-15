@@ -1,0 +1,18 @@
+projection;
+//strict ( 1 ); //Uncomment this line in order to enable strict mode 2. The strict mode has two variants (strict(1), strict(2)) and is prerequisite to be future proof regarding syntax and to be able to release your BO.
+use draft;
+
+define behavior for ZKE_M_TRAVEL_APPROVER //alias <alias_name>
+{
+field (readonly) TravelId,AgencyId,CustomerId,BeginDate,EndDate,TotalPrice,CurrencyCode,Status;
+  use update;
+
+  use action acceptTravel;
+  use action rejectTravel;
+  use association Booking { with draft; }
+}
+
+define behavior for ZKE_M_BOOKING_APPROVER //alias <alias_name>
+{
+  use association Travel { with draft; }
+}

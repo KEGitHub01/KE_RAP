@@ -4,9 +4,9 @@
   <asx:values>
    <SRVB>
     <METADATA>
-     <NAME>ZKE_M_SB_PROCESSOR</NAME>
+     <NAME>ZKE_M_SB_TR_APPROVER</NAME>
      <TYPE>SRVB/SVB</TYPE>
-     <DESCRIPTION>SERVICE BINDING for Processor</DESCRIPTION>
+     <DESCRIPTION>SERVICE BINDING for Travel Approver</DESCRIPTION>
      <LANGUAGE>EN</LANGUAGE>
      <LINKS>
       <item>
@@ -15,7 +15,7 @@
        <TITLE>Historic versions</TITLE>
       </item>
       <item>
-       <HREF>/sap/bc/adt/businessservices/odatav2/ZKE_M_SB_PROCESSOR</HREF>
+       <HREF>/sap/bc/adt/businessservices/odatav2/ZKE_M_SB_TR_APPROVER</HREF>
        <REL>http://www.sap.com/categories/odatav2</REL>
        <TYPE>application/vnd.sap.adt.businessservices.odatav2.v2+xml</TYPE>
        <TITLE>ODATAV2</TITLE>
@@ -44,21 +44,21 @@
     </METADATA>
     <CONTENT>
      <BIND_TYPE_IMPL>
-      <NAME>ZKE_M_SB_PROCESSOR</NAME>
+      <NAME>ZKE_M_SB_TR_APPROVER</NAME>
      </BIND_TYPE_IMPL>
      <BIND_TYPE>ODATA</BIND_TYPE>
      <BIND_TYPE_VERSION>V2</BIND_TYPE_VERSION>
      <SERVICES>
       <item>
-       <SERVICE_NAME>ZKE_M_SB_PROCESSOR</SERVICE_NAME>
+       <SERVICE_NAME>ZKE_M_SB_TR_APPROVER</SERVICE_NAME>
        <SERVICE_CONTENT>
         <item>
          <SERVICE_VERSION>0001</SERVICE_VERSION>
          <RELEASE_STATE>NOT_RELEASED</RELEASE_STATE>
          <SRVD_REF>
-          <URI>/sap/bc/adt/ddic/srvd/sources/zke_m_sd_processor</URI>
+          <URI>/sap/bc/adt/ddic/srvd/sources/zke_m_sd_tr_approver</URI>
           <TYPE>SRVD/SRV</TYPE>
-          <NAME>ZKE_M_SD_PROCESSOR</NAME>
+          <NAME>ZKE_M_SD_TR_APPROVER</NAME>
          </SRVD_REF>
          <BIND_TYPE_DATA>
           <CONTENT>

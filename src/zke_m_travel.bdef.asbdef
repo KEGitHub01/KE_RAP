@@ -1,18 +1,38 @@
 managed; //implementation in class zbp_ke_m_travel unique;
 //strict ( 1 );
+with draft;
 
 define behavior for ZKE_M_TRAVEL alias Travel
 implementation in class zbp_ke_m_travel unique
 persistent table /dmo/travel
+draft table zke_draft_travel
 lock master
 //authorization master ( instance )
+total etag Lastchangedat
 etag master Lastchangedat
+early numbering
 {
+
+ field (readonly) Createdat, Createdby, Lastchangedat, Lastchangedby;
+  field (features : instance) TravelId;
   create;
   update;
   delete;
-  association Booking { create; }
-action CreateTravelByTemplate result[1] $self;
+
+  draft determine action Prepare{
+   validation validateCustomer;
+   validation validateDates;
+   validation validateStatus;
+  }
+
+  validation validateCustomer on save { field CustomerId; create; }
+  validation validateDates on save { field BeginDate, EndDate; create; }
+  validation validateStatus on save { field status; }
+
+  association Booking { create; with draft; }
+  action createTravelByTemplate result [1] $self;
+  action (features : instance) acceptTravel result [1] $self;
+  action (features : instance) rejectTravel result [1] $self;
   mapping for /dmo/travel{
         TravelId = travel_id;
         AgencyId = agency_id;
@@ -32,16 +52,23 @@ action CreateTravelByTemplate result[1] $self;
 }
 
 define behavior for ZKE_M_BOOKING alias Booking
+implementation in class zbp_ke_m_booking unique
 persistent table /dmo/booking
+draft table zke_draft_book
 lock dependent by Travel
 //authorization dependent by Travel
 etag master lastChangeAT
+early numbering
 {
-  update;
+   update;
   delete;
   field ( readonly ) TravelId;
-  association Travel;
+  field ( mandatory ) ConnectionId, CarrierId, FlightDate, FlightPrice;
+  field (features: instance) bookingid, BookingDate, CustomerId;
 
+  association Travel {with draft;}
+
+  determination calculateTotalFlightPrice on modify { field FlightPrice, CurrencyCode; create; }
   mapping for /dmo/booking{
         BookingId = booking_id;
         TravelId = travel_id;

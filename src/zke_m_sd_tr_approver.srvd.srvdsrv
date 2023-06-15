@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service Definition for Travel Approver'
+define service ZKE_M_SD_TR_APPROVER {
+  expose ZKE_M_TRAVEL_APPROVER as Travel;
+  expose ZKE_M_BOOKING_APPROVER as Booking;
+  expose I_Currency as Currency;
+}

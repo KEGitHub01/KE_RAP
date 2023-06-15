@@ -1,19 +1,4 @@
-managed implementation in class zbp_ke_cds_so_sample unique;
-//strict ( 1 ); //Uncomment this line in order to enable strict mode 2. The strict mode has two variants (strict(1), strict(2)) and is prerequisite to be future proof regarding syntax and to be able to release your BO.
-
-define behavior for ZKE_CDS_SO_SAMPLE //alias <alias_name>
-persistent table ZKE_SO_SAMPLE
-lock master
-authorization master ( instance )
-//etag master <field_name>
+unmanaged;
+define behavior for ZKE_CDS_SO_SAMPLE
 {
-  create;
-  update;
-  delete;
-  mapping for zke_so_sample{
-CurrencyCode = currency_code;
-SalesOrg = sales_org;
-GrossAmount = gross_amount;
-SoId = so_id;
-}
 }
